@@ -2,17 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieData : MonoBehaviour
+[CreateAssetMenu(fileName = "ZombieData", menuName = "ZombieData")]
+public class ZombieData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Sprite sprite;
+    public float moveSpeed;
 }
