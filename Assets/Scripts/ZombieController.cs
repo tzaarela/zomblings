@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ZombieController : MonoBehaviour
 {
-    [SerializeField]
-    private ZombieData zombieData;
+    public ZombieData zombieData;
 
     private Rigidbody2D rb;
     private SpriteRenderer SpriteRenderer;
@@ -42,12 +41,22 @@ public class ZombieController : MonoBehaviour
 
     public void Die()
     {
-
+        Debug.Log("Zombie got killed");
+        Destroy(this.gameObject);
     }
 
-    public void EatBrain()
+    public void EatBrain(Brain brain)
     {
+        //wait for play animation TO FINISH
+        StartCoroutine(WaitForEating(brain));
+    }
 
+    private IEnumerator WaitForEating(Brain brain)
+    {
+        Debug.Log("Eating brains... yum yum...");
+        direction = Vector2.zero;
+        yield return new WaitForSeconds(2);
+        brain.onEatAnimationFinished.Invoke(this);
     }
 
 }

@@ -7,4 +7,5 @@ public class ZombieData : ScriptableObject
 {
     public Sprite sprite;
     public float moveSpeed;
+    public float damage;
 }
