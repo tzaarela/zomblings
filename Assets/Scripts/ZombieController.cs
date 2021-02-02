@@ -8,10 +8,20 @@ public class ZombieController : MonoBehaviour
     private ZombieData zombieData;
 
     private Rigidbody2D rb;
+    private SpriteRenderer SpriteRenderer;
+
+    private Vector2 direction;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
+        SpriteRenderer.sprite = zombieData.sprite;
+        direction = Vector2.right;
     }
 
     public void FixedUpdate()
@@ -21,12 +31,13 @@ public class ZombieController : MonoBehaviour
 
     public void MoveRight()
     {
-        rb.velocity = Vector2.right * zombieData.moveSpeed;
+        rb.velocity = new Vector2(zombieData.moveSpeed * direction.x, rb.velocity.y);
     }
 
     public void ReverseDirection()
     {
-        rb.velocity = new Vector2(rb.velocity.x * -1, rb.velocity.y);
+        Debug.Log("Zombie Reversing");
+        direction = direction * -1;
     }
 
     public void Die()

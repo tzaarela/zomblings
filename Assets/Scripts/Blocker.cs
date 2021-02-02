@@ -8,9 +8,7 @@ public class Blocker : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Zombie"))
         {
-            print("collidet");
-            collision.gameObject.GetComponent<ZombieWalkTmp>().FlipVelocity();
+            collision.gameObject.GetComponent<ZombieController>().ReverseDirection();
         }
     }
-
 }

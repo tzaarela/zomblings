@@ -10,6 +10,11 @@ public class SpawnController : MonoBehaviour
     [SerializeField] private float m_SpawnRate;
     [SerializeField] private int m_SpawnAmount;
 
+    public void Start()
+    {
+        StartWave();
+    }
+
     public void StartWave()
     {
         StartCoroutine(SpawnZombie());
@@ -21,6 +26,7 @@ public class SpawnController : MonoBehaviour
         for (int i = 0; i < m_SpawnAmount; i++)
         {
             yield return new WaitForSeconds(m_SpawnRate);
+            Debug.Log("Zombie spawned");
             Instantiate(m_ZombiePrefab, m_SpawnPoint.position, Quaternion.identity);
         }
     }
