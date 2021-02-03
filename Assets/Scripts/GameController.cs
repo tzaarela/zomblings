@@ -22,6 +22,6 @@ public class GameController : MonoBehaviour
 
     private void HandleOnBrainDead()
     {
-        Debug.Log("gAME OVER!!");
+        Debug.Log("GAME OVER!!");
     }
 }
