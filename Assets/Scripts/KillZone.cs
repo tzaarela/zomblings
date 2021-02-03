@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class KillZone : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.CompareTag("Zombie"))
+        if (collision.gameObject.CompareTag("Zombie"))
         {
             var zombie = collision.gameObject.GetComponent<ZombieController>();
             zombie.Die();

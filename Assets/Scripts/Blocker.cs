@@ -29,7 +29,7 @@ public class Blocker : MonoBehaviour
         //TODO - Change sprite depending on state
         durability -= zombie.zombieData.damage;
 
-        if (durability <= 0)
+        if (durability <= 0 && !gameObject.CompareTag("Empower"))
             Destroy(this.gameObject);
     }
 }

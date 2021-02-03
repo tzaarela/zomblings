@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eddf1718aa6bd54c8a06f4c4d3160a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOver: 0
+  m_SoundInterval: 5

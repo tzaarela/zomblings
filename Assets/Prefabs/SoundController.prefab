@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426683103523979862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.482433, y: 7.4364567, z: -45.386745}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,8 +44,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sounds:
-  - name: BackGroundMusic
+  - name: BackgroundMusic
     clip: {fileID: 8300000, guid: 2b5b3412445b5ce4d8a7ca87b9048a1a, type: 3}
-    volume: 0.52
-    pitch: 1.4
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: da7f22468232b4645920e13dc73742f1, type: 3}
+    volume: 0.29
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: PlaceBlock1
+    clip: {fileID: 8300000, guid: 86c4217205512564f96163eacce52be4, type: 3}
+    volume: 0.18
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ZombieSound1
+    clip: {fileID: 8300000, guid: 1241041c84a95a1438e93d4bb0ff25b7, type: 3}
+    volume: 0.1
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: ZombieSound2
+    clip: {fileID: 8300000, guid: c4482138c67adee438267ace495a87d6, type: 3}
+    volume: 0.1
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: ZombieSound3
+    clip: {fileID: 8300000, guid: 32fc3d839a72c174ba27104e1730bf66, type: 3}
+    volume: 0.1
+    pitch: 1.5
+    loop: 0
+    source: {fileID: 0}
+  - name: ZombieEating
+    clip: {fileID: 8300000, guid: 6ddc6e3c5e567c44aa2179664e35120d, type: 3}
+    volume: 0.05
+    pitch: 1.5
+    loop: 0
     source: {fileID: 0}
