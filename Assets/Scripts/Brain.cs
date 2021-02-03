@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using DG.Tweening;
 using UnityEngine.UI;
 
 public class Brain : MonoBehaviour
@@ -11,6 +11,10 @@ public class Brain : MonoBehaviour
 
     [SerializeField]
     private float health = 100f;
+    [SerializeField]
+    private float wobbleMax = 2f;
+    [SerializeField]
+    private float wobbleDuration = 2f;
     [SerializeField]
     private Sprite fullBrain;
     [SerializeField]
@@ -33,11 +37,12 @@ public class Brain : MonoBehaviour
     {
         onEatAnimationFinished += HandleOnEatAnimationFinished;
         spriteRenderer.sprite = fullBrain;
+        WobbleBrain();
     }
 
     private void WobbleBrain()
     {
-
+        transform.DOScale(wobbleMax, wobbleDuration).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void HandleOnEatAnimationFinished(ZombieController zombie)

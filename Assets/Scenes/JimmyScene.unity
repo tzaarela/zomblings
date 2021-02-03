@@ -893,6 +893,10 @@ PrefabInstance:
       value: Brain
       objectReference: {fileID: 0}
     - target: {fileID: 1803447738105873145, guid: bd13bb250164b3f408b8da8c4ed40ae6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803447738105873145, guid: bd13bb250164b3f408b8da8c4ed40ae6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.4
       objectReference: {fileID: 0}
@@ -901,9 +905,17 @@ PrefabInstance:
       value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 1803447738105873146, guid: bd13bb250164b3f408b8da8c4ed40ae6, type: 3}
+      propertyPath: wobbleMax
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1803447738105873146, guid: bd13bb250164b3f408b8da8c4ed40ae6, type: 3}
       propertyPath: UIHealthbar
       value: 
       objectReference: {fileID: 457884397}
+    - target: {fileID: 1803447738105873146, guid: bd13bb250164b3f408b8da8c4ed40ae6, type: 3}
+      propertyPath: wobbleDuration
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd13bb250164b3f408b8da8c4ed40ae6, type: 3}
 --- !u!1001 &5014589227257491271
