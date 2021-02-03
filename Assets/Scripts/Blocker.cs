@@ -28,5 +28,8 @@ public class Blocker : MonoBehaviour
     {
         //TODO - Change sprite depending on state
         durability -= zombie.zombieData.damage;
+
+        if (durability <= 0)
+            Destroy(this.gameObject);
     }
 }
