@@ -13,9 +13,26 @@ public class DragAndDrop : MonoBehaviour
     private Vector2 m_InitialPositionMouse;
     private Vector2 m_InitialPositionObject;
     private Vector2 m_startPosition;
+    private GameObject[] m_Zombies;
     private void Update()
     {
         DragObject();
+        m_Zombies = GameObject.FindGameObjectsWithTag("Zombie");
+        if (m_IsDragged)
+        {
+            foreach (GameObject zombie in m_Zombies)
+            {
+            Physics2D.IgnoreCollision(zombie.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
+            }
+        }
+        else if (!m_IsDragged)
+        {
+            foreach (GameObject zombie in m_Zombies)
+            {
+                Physics2D.IgnoreCollision(zombie.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
+            }
+        }
+
     }
 
     private void OnMouseOver()
