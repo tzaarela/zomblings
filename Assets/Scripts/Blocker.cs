@@ -4,11 +4,29 @@ using UnityEngine;
 
 public class Blocker : MonoBehaviour
 {
+    public BlockerData blockerData;
+
+    private float durability;
+
+
+    private void Start()
+    {
+        durability = blockerData.durability;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Zombie"))
         {
-            collision.gameObject.GetComponent<ZombieController>().ReverseDirection();
+            var zombie = collision.gameObject.GetComponent<ZombieController>();
+            ReduceDurability(zombie);
+            zombie.ReverseDirection();
         }
+    }
+
+    private void ReduceDurability(ZombieController zombie)
+    {
+        //TODO - Change sprite depending on state
+        durability -= zombie.zombieData.damage;
     }
 }
