@@ -2,18 +2,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using UnityEngine.UI;
 
 public class Brain : MonoBehaviour
 {
     [Header("BrainSettings")]
+
     [SerializeField]
     private float health = 100f;
+    [SerializeField]
+    private float wobbleMax = 2f;
+    [SerializeField]
+    private float wobbleDuration = 2f;
     [SerializeField]
     private Sprite fullBrain;
     [SerializeField]
     private Sprite damagedBrain;
     [SerializeField]
     private Sprite criticalBrain;
+    [SerializeField]
+    private Image UIHealthbar;
+
     private SpriteRenderer spriteRenderer;
 
     public Action<ZombieController> onEatAnimationFinished;
@@ -27,6 +37,12 @@ public class Brain : MonoBehaviour
     {
         onEatAnimationFinished += HandleOnEatAnimationFinished;
         spriteRenderer.sprite = fullBrain;
+        WobbleBrain();
+    }
+
+    private void WobbleBrain()
+    {
+        transform.DOScale(wobbleMax, wobbleDuration).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void HandleOnEatAnimationFinished(ZombieController zombie)
@@ -47,6 +63,7 @@ public class Brain : MonoBehaviour
     private void TakeDamage(float damage)
     {
         health -= damage;
+        UIHealthbar.fillAmount = health * 0.01f;
         ChangeSprite();
         if (health <= 0)
         {
