@@ -2,10 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class Brain : MonoBehaviour
 {
     [Header("BrainSettings")]
+
     [SerializeField]
     private float health = 100f;
     [SerializeField]
@@ -14,6 +17,9 @@ public class Brain : MonoBehaviour
     private Sprite damagedBrain;
     [SerializeField]
     private Sprite criticalBrain;
+    [SerializeField]
+    private Image UIHealthbar;
+
     private SpriteRenderer spriteRenderer;
 
     public Action<ZombieController> onEatAnimationFinished;
@@ -27,6 +33,11 @@ public class Brain : MonoBehaviour
     {
         onEatAnimationFinished += HandleOnEatAnimationFinished;
         spriteRenderer.sprite = fullBrain;
+    }
+
+    private void WobbleBrain()
+    {
+
     }
 
     private void HandleOnEatAnimationFinished(ZombieController zombie)
@@ -47,6 +58,7 @@ public class Brain : MonoBehaviour
     private void TakeDamage(float damage)
     {
         health -= damage;
+        UIHealthbar.fillAmount = health * 0.01f;
         ChangeSprite();
         if (health <= 0)
         {
