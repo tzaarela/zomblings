@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 7710587708307416781}
   - component: {fileID: 1964257010186170392}
   m_Layer: 0
-  m_Name: Blocker2
+  m_Name: Empower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 982bdbe7980560e45b12f3dcbf4f0aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockerData: {fileID: 11400000, guid: b71ce4d361cf40d4ab108f7d0e2cbfcb, type: 2}
 --- !u!114 &1964257010186170392
 MonoBehaviour:
   m_ObjectHideFlags: 0

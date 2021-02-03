@@ -12,6 +12,7 @@ public class DragAndDrop : MonoBehaviour
     [SerializeField] private LayerMask m_PlatformLayer;
     private Vector2 m_InitialPositionMouse;
     private Vector2 m_InitialPositionObject;
+    private Vector2 m_startPosition;
     private void Update()
     {
         DragObject();
@@ -27,6 +28,7 @@ public class DragAndDrop : MonoBehaviour
                 m_InitialPositionObject = transform.position;
             }
             m_IsDragged = true;
+            m_startPosition = transform.position;
         }
     }
 
@@ -38,6 +40,10 @@ public class DragAndDrop : MonoBehaviour
         if (hit)
         {           
             transform.position = hit.point + new Vector2(0, m_DropOffset);
+        }
+        else
+        {
+            transform.position = m_startPosition;
         }
     }
 

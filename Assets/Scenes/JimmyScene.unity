@@ -200,6 +200,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 10.02
       objectReference: {fileID: 0}
+    - target: {fileID: 7710587708307416781, guid: 34e6150b848fca64c940e2ade51c8940, type: 3}
+      propertyPath: blockerData
+      value: 
+      objectReference: {fileID: 11400000, guid: b71ce4d361cf40d4ab108f7d0e2cbfcb, type: 2}
     - target: {fileID: 7710587708307416782, guid: 34e6150b848fca64c940e2ade51c8940, type: 3}
       propertyPath: m_Name
       value: Blocker (1)
