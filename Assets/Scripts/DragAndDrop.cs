@@ -22,6 +22,7 @@ public class DragAndDrop : MonoBehaviour
     {
         if (m_IsDraggable && Input.GetMouseButtonDown(0))
         {
+            SoundController.Instance.PlaySound("ButtonClick");
             if (m_SmartDrag)
             {
                 m_InitialPositionMouse = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -40,10 +41,12 @@ public class DragAndDrop : MonoBehaviour
         if (hit)
         {           
             transform.position = hit.point + new Vector2(0, m_DropOffset);
+            SoundController.Instance.PlaySound("PlaceBlock1");
         }
         else
         {
             transform.position = m_startPosition;
+            SoundController.Instance.PlaySound("PlaceBlock1");
         }
     }
 
