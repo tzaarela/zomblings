@@ -4,24 +4,28 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-    public Teleporter teleporterExit;
-    public bool isExit;
+	private TeleporterExit[] teleporterExits;
 
-    public void Start()
-    {
-        if(isExit)
-            GetComponent<BoxCollider2D>().enabled = false;
-    }
+	public void Start()
+	{
+		teleporterExits = FindObjectsOfType<TeleporterExit>();
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Zombie"))
-        {
-            var zombie = collision.gameObject.GetComponent<ZombieController>();
-            zombie.transform.position = teleporterExit.transform.position;
+		if (teleporterExits.Length == 0)
+			Debug.LogError("No teleportExit found in scene, please add a prefab");
+		if (teleporterExits.Length > 1)
+			Debug.LogError("More then one teleportExit found in scene, please only use one for now!");
 
-            if (teleporterExit.transform.lossyScale.x == 1)
-                zombie.ReverseDirection();
-        }
-    }
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.CompareTag("Zombie"))
+		{
+			var zombie = collision.gameObject.GetComponent<ZombieController>();
+			zombie.transform.position = teleporterExits[0].transform.position;
+
+			if (teleporterExits[0].transform.lossyScale.x == 1)
+				zombie.ReverseDirection();
+		}
+	}
 }

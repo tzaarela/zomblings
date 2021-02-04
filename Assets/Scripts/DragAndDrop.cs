@@ -36,6 +36,9 @@ public class DragAndDrop : MonoBehaviour
         m_Zombies = GameObject.FindGameObjectsWithTag("Zombie");
         if (m_IsDragged)
         {
+            if (Input.GetMouseButtonDown(1))
+                Flip();
+
             foreach (GameObject zombie in m_Zombies)
             {
             Physics2D.IgnoreCollision(zombie.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
@@ -49,6 +52,12 @@ public class DragAndDrop : MonoBehaviour
             }
         }
 
+    }
+
+    private void Flip()
+    {
+        var dropper = GetComponent<Dropper>();
+        dropper.Flip();
     }
 
     private void OnMouseDown()
