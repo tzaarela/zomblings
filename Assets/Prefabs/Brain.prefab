@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1803447738105873144}
   - component: {fileID: 1803447738105873143}
   - component: {fileID: 1803447738105873146}
+  - component: {fileID: 6187021246394887731}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -52,7 +53,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,7 +102,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.75, y: 9.5}
+    oldSize: {x: 3.44, y: 3.04}
     newSize: {x: 8, y: 8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -123,9 +124,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  wobbleMax: 1.5
-  wobbleDuration: 2
+  wobbleMax: 1.2
+  wobbleDuration: 1
   fullBrain: {fileID: 21300000, guid: 7b974516ddf5f654384cb1acfff3efbc, type: 3}
   damagedBrain: {fileID: 21300000, guid: adfeb454fe6fcc84bb50fe22926c101c, type: 3}
   criticalBrain: {fileID: 21300000, guid: 69100a89e4d173640b801aecd95999c0, type: 3}
   UIHealthbar: {fileID: 0}
+--- !u!114 &6187021246394887731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803447738105873142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 0
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 671a6d79000000003f6f36d5
+  m_ShapePath:
+  - {x: -0.00032520294, y: -1.000515, z: 0}
+  - {x: 1.2734308, y: -1.1483154, z: 0}
+  - {x: 1.3092575, y: -0.75422287, z: 0}
+  - {x: 0.8972521, y: -0.37804413, z: 0}
+  - {x: 1.3796482, y: -0.17650223, z: 0}
+  - {x: 1.1467752, y: 0.8751221, z: 0}
+  - {x: 0.37776756, y: 1.1983223, z: 0}
+  - {x: -0.55372334, y: 1.1266708, z: 0}
+  - {x: -1.1288624, y: 0.6780777, z: 0}
+  - {x: -1.395648, y: -0.19890976, z: 0}
+  - {x: -1.055295, y: -0.7900505, z: 0}
+  m_ShapePathHash: -1927062585
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -233396

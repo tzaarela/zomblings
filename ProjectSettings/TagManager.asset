@@ -41,8 +41,20 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2037193319
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Environment
+    uniqueID: 3577114431
+    locked: 0
+  - name: Zombies
+    uniqueID: 3257507389
+    locked: 0
+  - name: Droppers
+    uniqueID: 2116302479
     locked: 0
   - name: UI
     uniqueID: 1171160215

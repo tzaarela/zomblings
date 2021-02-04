@@ -32,7 +32,7 @@ public class SoundController : MonoBehaviour
 
     public void PlaySound(string name)
     {
-       Sound s = Array.Find(Sounds, sound => sound.name == name);
+        Sound s = Array.Find(Sounds, sound => sound.name == name);
         if (s != null)
         {
             s.source.Play();

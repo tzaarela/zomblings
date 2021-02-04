@@ -48,7 +48,7 @@ public class Brain : MonoBehaviour
     private void HandleOnEatAnimationFinished(ZombieController zombie)
     {
         TakeDamage(zombie.zombieData.damage);
-        Destroy(zombie.gameObject);
+        zombie.Die();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
