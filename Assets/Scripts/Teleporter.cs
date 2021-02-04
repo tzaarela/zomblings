@@ -25,14 +25,6 @@ public class Teleporter : MonoBehaviour
 			zombie.transform.position = teleporterExit.transform.position;
 			zombie.GetComponent<SpriteRenderer>().sortingLayerName = "Zombie";
 			zombie.GetComponent<SpriteRenderer>().sortingLayerID = 0;
-
-			float[] scales = new float[2]
-			{
-				-0.4f,
-				0.4f
-			};
-
-			zombie.transform.localScale = new Vector3(scales[Random.Range(0, 1)], zombie.transform.localScale.y, 1);
 		}
 	}
 }

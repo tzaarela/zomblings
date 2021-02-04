@@ -85,12 +85,12 @@ MonoBehaviour:
   m_SpawnAmount: 10
   waveCount: 3
   waves:
-  - zombieCount: 10
-    zombieSpeed: 12
-  - zombieCount: 20
-    zombieSpeed: 14
   - zombieCount: 30
-    zombieSpeed: 16
+    zombieSpeed: 6
+  - zombieCount: 20
+    zombieSpeed: 8
+  - zombieCount: 10
+    zombieSpeed: 10
 --- !u!1 &5438104274005759634
 GameObject:
   m_ObjectHideFlags: 0

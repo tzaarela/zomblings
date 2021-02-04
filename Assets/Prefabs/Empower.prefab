@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2116302479
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 90ab7d4231a525a40a392a27afe21f9d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3332344432031742534}
   - component: {fileID: 3332344432031742532}
   - component: {fileID: 5518834393065876257}
+  - component: {fileID: -3100606279902914256}
   m_Layer: 0
   m_Name: Empower
   m_TagString: Empower
@@ -175,3 +176,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
+--- !u!114 &-3100606279902914256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3332344432031742533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 982bdbe7980560e45b12f3dcbf4f0aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockerData: {fileID: 11400000, guid: bd710406bbf34bb45a6354f9be5f1124, type: 2}
