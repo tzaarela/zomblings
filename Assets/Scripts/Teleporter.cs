@@ -1,20 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
-	private TeleporterExit[] teleporterExits;
+	private TeleporterExit teleporterExit;
+
+	public int id;
 
 	public void Start()
 	{
-		teleporterExits = FindObjectsOfType<TeleporterExit>();
+		teleporterExit = FindObjectsOfType<TeleporterExit>().FirstOrDefault(x => x.id == id);
 
-		if (teleporterExits.Length == 0)
-			Debug.LogError("No teleportExit found in scene, please add a prefab");
-		if (teleporterExits.Length > 1)
-			Debug.LogError("More then one teleportExit found in scene, please only use one for now!");
-
+		if (teleporterExit == null)
+			Debug.LogError($"No matching exit found for teleport id:{id}");
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -22,9 +22,9 @@ public class Teleporter : MonoBehaviour
 		if (collision.CompareTag("Zombie"))
 		{
 			var zombie = collision.gameObject.GetComponent<ZombieController>();
-			zombie.transform.position = teleporterExits[0].transform.position;
+			zombie.transform.position = teleporterExit.transform.position;
 
-			if (teleporterExits[0].transform.lossyScale.x == 1)
+			if (teleporterExit.transform.lossyScale.x == 1)
 				zombie.ReverseDirection();
 		}
 	}

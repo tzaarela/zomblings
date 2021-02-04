@@ -42,6 +42,11 @@ public class ZombieController : MonoBehaviour
         GameController.Instance.CheckIfZombiesDead();
     }
 
+    public void Dance()
+    {
+        Debug.Log("Play dance animation");
+    }
+
     public void EatBrain(Brain brain)
     {
         //wait for play animation TO FINISH

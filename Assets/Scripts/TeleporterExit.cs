@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class TeleporterExit : MonoBehaviour
 {
-    
+    public int id;
 }

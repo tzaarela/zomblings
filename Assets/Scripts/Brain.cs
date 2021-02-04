@@ -25,6 +25,7 @@ public class Brain : MonoBehaviour
     private Image UIHealthbar;
 
     private SpriteRenderer spriteRenderer;
+    private Tween tween;
 
     public Action<ZombieController> onEatAnimationFinished;
 
@@ -42,13 +43,17 @@ public class Brain : MonoBehaviour
 
     private void WobbleBrain()
     {
-        transform.DOScale(wobbleMax, wobbleDuration).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+        tween = transform.DOScale(wobbleMax, wobbleDuration).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
     }
 
     private void HandleOnEatAnimationFinished(ZombieController zombie)
     {
-        TakeDamage(zombie.zombieData.damage);
-        zombie.Die();
+        var isBrainDed = TakeDamage(zombie.zombieData.damage);
+
+        if(!isBrainDed)
+            zombie.Die();
+        else
+            zombie.Dance();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,7 +65,12 @@ public class Brain : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float damage)
+    private void OnDestroy()
+    {
+        tween.Kill();
+    }
+
+    private bool TakeDamage(float damage)
     {
         health -= damage;
         UIHealthbar.fillAmount = health * 0.01f;
@@ -69,7 +79,10 @@ public class Brain : MonoBehaviour
         {
             GameController.Instance.onBrainDead.Invoke();
             Destroy(gameObject);
+            return true;
         }
+
+        return false;
     }
 
     private void ChangeSprite()

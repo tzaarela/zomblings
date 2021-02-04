@@ -469,7 +469,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2218522278077980759, guid: fbf0a63e5165f014f80dc79bbce73fb4, type: 3}
       propertyPath: m_Intensity
-      value: 0.39
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbf0a63e5165f014f80dc79bbce73fb4, type: 3}
