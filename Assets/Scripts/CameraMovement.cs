@@ -26,7 +26,7 @@ public class CameraMovement : MonoBehaviour
             float newPosition = Mathf.SmoothDamp(transform.position.y, transform.position.y + 10, ref m_CameraSpeed, m_CameraSmoothing);
             transform.position = new Vector3(transform.position.x, newPosition, transform.position.z); 
         }
-        else if (Input.mousePosition.y <= 0)
+        else if (Input.mousePosition.y <= -20)
         {
             float newPosition = Mathf.SmoothDamp(transform.position.y, transform.position.y - 10, ref m_CameraSpeed, m_CameraSmoothing);
             transform.position = new Vector3(transform.position.x, newPosition, transform.position.z);
