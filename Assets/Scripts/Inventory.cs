@@ -16,8 +16,6 @@ namespace Assets.Scripts
 		private List<InventoryItem[]> items;
 		private ItemType[] itemTypes;
 
-
-
 		public Inventory(int blockerCount, int teleporterCount, int empowerCount)
 		{
 			itemTypes = new ItemType[]
@@ -27,9 +25,12 @@ namespace Assets.Scripts
 				ItemType.Empower
 			};
 
+			items = new List<InventoryItem[]>();
 			items.Add(new InventoryItem[blockerCount]);
 			items.Add(new InventoryItem[teleporterCount]);
 			items.Add(new InventoryItem[empowerCount]);
+
+			FillInventory();
 		}
 
 		public void FillInventory()
@@ -42,6 +43,13 @@ namespace Assets.Scripts
                 }
             }
         }
+
+		public int GetItemCount(ItemType itemType)
+        {
+			return items
+				.FirstOrDefault(x => x.Any(y => y.itemType == itemType))
+				.Where(x => !x.isSlotEmpty).ToArray().Length;
+		}
 
 		public void AddToInventory(ItemType itemType)
         {
@@ -58,6 +66,9 @@ namespace Assets.Scripts
         {
 			var droppers = items.FirstOrDefault(x => x.Any(y => y.itemType == itemType));
 			var dropper = droppers.FirstOrDefault(x => !x.isSlotEmpty);
+
+			if(dropper != null)
+				dropper.isSlotEmpty = true;
 
 			return dropper;
 		}

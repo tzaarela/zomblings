@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,8 +15,23 @@ public class DragAndDrop : MonoBehaviour
     private Vector2 m_InitialPositionObject;
     private Vector2 m_startPosition;
     private GameObject[] m_Zombies;
+    private bool isPickedFromPlatform;
+
+    public Action onCreated;
+
+    private void Awake()
+    {
+        onCreated += PickUp;
+        m_PlatformLayer = 1 << LayerMask.NameToLayer("Platform");
+        
+    }
+
     private void Update()
     {
+
+        if (Input.GetMouseButtonUp(0) && m_IsDragged)
+            Release();
+
         DragObject();
         m_Zombies = GameObject.FindGameObjectsWithTag("Zombie");
         if (m_IsDragged)
@@ -35,7 +51,13 @@ public class DragAndDrop : MonoBehaviour
 
     }
 
-    private void OnMouseOver()
+    private void OnMouseDown()
+    {
+        PickUp();
+        isPickedFromPlatform = true;
+    }
+
+    public void PickUp()
     {
         if (m_IsDraggable && Input.GetMouseButtonDown(0))
         {
@@ -50,36 +72,39 @@ public class DragAndDrop : MonoBehaviour
         }
     }
 
-    private void OnMouseUp()
+    public void Release()
     {
         m_IsDragged = false;
         var hit = Physics2D.Raycast(transform.position, Vector2.down, m_SnappingDiscante, m_PlatformLayer);
 
         if (hit)
-        {           
+        {
             transform.position = hit.point + new Vector2(0, m_DropOffset);
             SoundController.Instance.PlaySound("PlaceBlock1");
         }
         else
         {
-            transform.position = m_startPosition;
+            if (isPickedFromPlatform)
+                transform.position = m_startPosition;
+            else
+            {
+                Destroy(this.gameObject);
+                InventoryController.Instance.AddItem(this.gameObject.GetComponent<Dropper>().itemType);
+            }
             SoundController.Instance.PlaySound("PlaceBlock1");
         }
+    }
+    private void OnMouseUp()
+    {
+        
     }
 
     private void DragObject()
     {
         if (m_IsDragged)
         {
-            if (!m_IsDragged)
-            {
-                gameObject.transform.position = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            }
-            else
-            {
-                gameObject.transform.position = m_InitialPositionObject + (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - m_InitialPositionMouse;
-            }
-
+            gameObject.transform.position = m_InitialPositionObject + (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - m_InitialPositionMouse;
+            gameObject.transform.position += Vector3.down;
         }
     }
 }
