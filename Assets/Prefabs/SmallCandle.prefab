@@ -425,11 +425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2218522278077980756, guid: fbf0a63e5165f014f80dc79bbce73fb4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.183
       objectReference: {fileID: 0}
     - target: {fileID: 2218522278077980756, guid: fbf0a63e5165f014f80dc79bbce73fb4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.933
       objectReference: {fileID: 0}
     - target: {fileID: 2218522278077980756, guid: fbf0a63e5165f014f80dc79bbce73fb4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -466,6 +466,18 @@ PrefabInstance:
     - target: {fileID: 2218522278077980757, guid: fbf0a63e5165f014f80dc79bbce73fb4, type: 3}
       propertyPath: m_Name
       value: SmallCandleLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218522278077980759, guid: fbf0a63e5165f014f80dc79bbce73fb4, type: 3}
+      propertyPath: m_Color.b
+      value: 0.22745097
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218522278077980759, guid: fbf0a63e5165f014f80dc79bbce73fb4, type: 3}
+      propertyPath: m_Color.g
+      value: 0.56449705
+      objectReference: {fileID: 0}
+    - target: {fileID: 2218522278077980759, guid: fbf0a63e5165f014f80dc79bbce73fb4, type: 3}
+      propertyPath: m_Color.r
+      value: 0.7647059
       objectReference: {fileID: 0}
     - target: {fileID: 2218522278077980759, guid: fbf0a63e5165f014f80dc79bbce73fb4, type: 3}
       propertyPath: m_Intensity
