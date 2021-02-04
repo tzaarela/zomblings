@@ -49,6 +49,8 @@ public class ZombieController : MonoBehaviour
 
     public void MoveRight()
     {
+        animator.SetBool("isWalking", true);
+        animator.SetFloat("xVelocity", direction.x);
         rb.velocity = new Vector3(zombieData.moveSpeed * direction.x, rb.velocity.y, 0);
     }
 

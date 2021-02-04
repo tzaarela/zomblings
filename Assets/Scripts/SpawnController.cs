@@ -48,9 +48,6 @@ public class SpawnController : MonoBehaviour
     //Spawns a zombie as fast as the SpawnRate
     public IEnumerator SpawnZombie()
     {
-        
-
-
         for (int i = 0; i < waves[currentWaveIndex].zombieCount; i++)
         {
             var randomSpawnIndex = Random.Range(0, m_SpawnPoints.Count - 1); 

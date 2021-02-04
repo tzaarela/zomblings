@@ -121,7 +121,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 687.7778
+        width: 680
         height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -140,9 +140,9 @@ TextureImporter:
       name: Spritesheet walking cycle_1
       rect:
         serializedVersion: 2
-        x: 687
+        x: 680
         y: 0
-        width: 687.7778
+        width: 680
         height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -161,9 +161,9 @@ TextureImporter:
       name: Spritesheet walking cycle_2
       rect:
         serializedVersion: 2
-        x: 1374
+        x: 1360
         y: 0
-        width: 687.7778
+        width: 680
         height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -182,9 +182,9 @@ TextureImporter:
       name: Spritesheet walking cycle_3
       rect:
         serializedVersion: 2
-        x: 2061
+        x: 2040
         y: 0
-        width: 687.7778
+        width: 680
         height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -203,9 +203,9 @@ TextureImporter:
       name: Spritesheet walking cycle_4
       rect:
         serializedVersion: 2
-        x: 2748
+        x: 2720
         y: 0
-        width: 687.7778
+        width: 680
         height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -224,9 +224,9 @@ TextureImporter:
       name: Spritesheet walking cycle_5
       rect:
         serializedVersion: 2
-        x: 3435
+        x: 3400
         y: 0
-        width: 687.7778
+        width: 680
         height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -245,9 +245,9 @@ TextureImporter:
       name: Spritesheet walking cycle_6
       rect:
         serializedVersion: 2
-        x: 4122
+        x: 4080
         y: 0
-        width: 687.7778
+        width: 680
         height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -266,9 +266,9 @@ TextureImporter:
       name: Spritesheet walking cycle_7
       rect:
         serializedVersion: 2
-        x: 4809
+        x: 4760
         y: 0
-        width: 687.7778
+        width: 680
         height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -287,9 +287,9 @@ TextureImporter:
       name: Spritesheet walking cycle_8
       rect:
         serializedVersion: 2
-        x: 5496
+        x: 5440
         y: 0
-        width: 687.7778
+        width: 680
         height: 1077
       alignment: 0
       pivot: {x: 0, y: 0}
