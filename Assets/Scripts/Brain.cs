@@ -50,7 +50,7 @@ public class Brain : MonoBehaviour
     {
         var isBrainDed = TakeDamage(zombie.zombieData.damage);
 
-        if(!isBrainDed)
+        if (!isBrainDed)
             zombie.Die();
         else
             zombie.Dance();
@@ -87,13 +87,16 @@ public class Brain : MonoBehaviour
 
     private void ChangeSprite()
     {
-        if (health <= 60 && health > 30)
+        if (spriteRenderer != null)
         {
-            spriteRenderer.sprite = damagedBrain;
-        }
-        else if(health <= 30)
-        {
-            spriteRenderer.sprite = criticalBrain;
+            if (health <= 60 && health > 30)
+            {
+                spriteRenderer.sprite = damagedBrain;
+            }
+            else if (health <= 30)
+            {
+                spriteRenderer.sprite = criticalBrain;
+            }
         }
     }
 }

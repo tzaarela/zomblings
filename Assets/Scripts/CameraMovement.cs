@@ -21,26 +21,26 @@ public class CameraMovement : MonoBehaviour
     private void MoveCamera()
     {
 
-        if (Input.mousePosition.y >= m_ScreenHeight)
+        if (Input.mousePosition.y >= m_ScreenHeight - 50)
         {
             float newPosition = Mathf.SmoothDamp(transform.position.y, transform.position.y + 10, ref m_CameraSpeed, m_CameraSmoothing);
             transform.position = new Vector3(transform.position.x, newPosition, transform.position.z); 
         }
-        else if (Input.mousePosition.y <= -20)
+        else if (Input.mousePosition.y <= 30)
         {
             float newPosition = Mathf.SmoothDamp(transform.position.y, transform.position.y - 10, ref m_CameraSpeed, m_CameraSmoothing);
             transform.position = new Vector3(transform.position.x, newPosition, transform.position.z);
         }
 
 
-        //if (transform.position.y > 20)
-        //{
-        //    transform.position = new Vector3(transform.position.x, 20, transform.position.z);
-        //}
+        if (transform.position.y > 20)
+        {
+            transform.position = new Vector3(transform.position.x, 20, transform.position.z);
+        }
 
-        //if (transform.position.y < -40)
-        //{
-        //    transform.position = new Vector3(transform.position.x, -40, transform.position.z);
-        //}
+        if (transform.position.y < -260)
+        {
+            transform.position = new Vector3(transform.position.x, -260, transform.position.z);
+        }
     }
 }

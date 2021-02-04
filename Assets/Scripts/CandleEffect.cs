@@ -26,7 +26,10 @@ public class CandleEffect : MonoBehaviour
     {
         foreach (var tween in tweens)
         {
+            if (tween != null)
+            {
             tween.Kill();
+            }
         }
     }
 }

@@ -92,6 +92,7 @@ public class GameController : MonoBehaviour
     {
         StartCoroutine(ReloadSceneAsync());
         SpawnController.Instance.ResetWaves();
+        SceneManager.LoadScene(1);
     }
 
     private void NextWave()
@@ -102,7 +103,7 @@ public class GameController : MonoBehaviour
     IEnumerator ReloadSceneAsync()
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(1);
-        
+
         while (!asyncLoad.isDone)
         {
             yield return null;
