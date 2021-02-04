@@ -5,7 +5,11 @@ using UnityEngine;
 
 public class BtnManager : MonoBehaviour
 {
-
+    public bool IsStartBtn;
+    public bool IsTutBtn;
+    public bool IsBackBtn;
+    public GameObject MainScreen;
+    public GameObject TutorialScreen;
     private SpriteRenderer m_SpriteRenderer;
 
     private void Start()
@@ -15,7 +19,19 @@ public class BtnManager : MonoBehaviour
 
     private void OnMouseUp()
     {
-        StartGame();
+        if (IsStartBtn)
+        {
+            StartGame();
+        }
+        else if (IsTutBtn)
+        {
+            StartTutorialScreen();
+        }
+        else if (IsBackBtn)
+        {
+            StartMainMenuScreen();
+        }
+        m_SpriteRenderer.color = Color.white;
     }
 
     private void OnMouseOver()
@@ -30,6 +46,18 @@ public class BtnManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void StartMainMenuScreen()
+    {
+        MainScreen.SetActive(true);
+        TutorialScreen.SetActive(false);
+    }
+
+    public void StartTutorialScreen()
+    {
+        MainScreen.SetActive(false);
+        TutorialScreen.SetActive(true);
     }
 
 }
