@@ -189,3 +189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockerData: {fileID: 11400000, guid: bd710406bbf34bb45a6354f9be5f1124, type: 2}
+  m_FullDura: {fileID: 21300000, guid: 90ab7d4231a525a40a392a27afe21f9d, type: 3}
+  m_DamagedDura: {fileID: 21300000, guid: 90ab7d4231a525a40a392a27afe21f9d, type: 3}
+  m_CriticalDura: {fileID: 21300000, guid: 90ab7d4231a525a40a392a27afe21f9d, type: 3}
+  m_Flame: {fileID: 0}
+  m_SpriteRenderer: {fileID: 1705616087725050097}
