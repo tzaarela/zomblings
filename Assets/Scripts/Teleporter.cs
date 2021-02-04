@@ -24,8 +24,13 @@ public class Teleporter : MonoBehaviour
 			var zombie = collision.gameObject.GetComponent<ZombieController>();
 			zombie.transform.position = teleporterExit.transform.position;
 
-			if (teleporterExit.transform.lossyScale.x == 1)
-				zombie.ReverseDirection();
+			float[] scales = new float[2]
+			{
+				-0.4f,
+				0.4f
+			};
+
+			zombie.transform.localScale = new Vector3(scales[Random.Range(0, 1)], zombie.transform.localScale.y, 1);
 		}
 	}
 }
