@@ -1,34 +1,64 @@
-﻿using System.Collections;
+﻿using Assets.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class SpawnController : MonoBehaviour
 {
+    public static SpawnController Instance;
+
     [Header("SpawnSettings")]
     [SerializeField] private GameObject m_ZombiePrefab;
-    [SerializeField] private Transform m_SpawnPoint;
+    [SerializeField] List<Transform> m_SpawnPoints;
     [SerializeField] private float m_SpawnRate;
     [SerializeField] private int m_SpawnAmount;
-    public bool m_MoveleftFromStart;
 
+    private int currentWaveIndex;
+
+    public int waveCount;
+
+    [SerializeField]
+    public Wave[] waves;
+
+    public void Awake()
+    {
+        if (Instance != this)
+            Instance = this;
+
+        DontDestroyOnLoad(gameObject);
+    }
 
     public void Start()
     {
-        StartWave();
+        currentWaveIndex = 0;
+        NextWave();
     }
 
-    public void StartWave()
+    public void NextWave()
     {
         StartCoroutine(SpawnZombie());
+    }
+
+    public void ResetWaves()
+    {
+        currentWaveIndex = 0;
     }
 
     //Spawns a zombie as fast as the SpawnRate
     public IEnumerator SpawnZombie()
     {
-        for (int i = 0; i < m_SpawnAmount; i++)
+        
+
+
+        for (int i = 0; i < waves[currentWaveIndex].zombieCount; i++)
         {
+            var randomSpawnIndex = Random.Range(0, m_SpawnPoints.Count - 1); 
             yield return new WaitForSeconds(m_SpawnRate);
-            Instantiate(m_ZombiePrefab, m_SpawnPoint.position, Quaternion.identity);
+            var zombie = Instantiate(m_ZombiePrefab, m_SpawnPoints[randomSpawnIndex].position, Quaternion.identity).GetComponent<ZombieController>();
+            zombie.GetComponent<Rigidbody2D>().isKinematic = true;
+            zombie.zombieData.moveSpeed = waves[currentWaveIndex].zombieSpeed;
         }
+        currentWaveIndex++;
     }
 }

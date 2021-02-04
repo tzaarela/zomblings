@@ -20,7 +20,7 @@ public class Blocker : MonoBehaviour
         {
             var zombie = collision.gameObject.GetComponent<ZombieController>();
             ReduceDurability(zombie);
-            zombie.ReverseDirection();
+            zombie.FlipDirection();
         }
     }
 
