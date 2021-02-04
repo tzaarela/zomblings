@@ -33,14 +33,14 @@ public class CameraMovement : MonoBehaviour
         }
 
 
-        if (transform.position.y > 20)
-        {
-            transform.position = new Vector3(transform.position.x, 20, transform.position.z);
-        }
+        //if (transform.position.y > 20)
+        //{
+        //    transform.position = new Vector3(transform.position.x, 20, transform.position.z);
+        //}
 
-        if (transform.position.y < -40)
-        {
-            transform.position = new Vector3(transform.position.x, -40, transform.position.z);
-        }
+        //if (transform.position.y < -40)
+        //{
+        //    transform.position = new Vector3(transform.position.x, -40, transform.position.z);
+        //}
     }
 }
