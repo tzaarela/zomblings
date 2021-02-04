@@ -5,33 +5,54 @@ using UnityEngine;
 public class ZombieController : MonoBehaviour
 {
     public ZombieData zombieData;
+    public Vector3 direction;
+
     private Rigidbody2D rb;
     private SpriteRenderer SpriteRenderer;
-    private Vector2 direction;
+    private Animator animator;
+
+    private bool spawnAnimationFinished;
     
-    private void Awake()
+    public void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
-    private void Start()
+    public void Start()
     {
         SpriteRenderer.sprite = zombieData.sprite;
-        direction = Vector2.right;
+
+        var random = Random.Range(0, 2);
+        direction = random == 0 ? Vector3.right : Vector3.left;
+
+        animator.Play("ZombieGraveSpawn");
+        StartCoroutine(OnCompleteSpawnAnimation());
     }
 
     public void FixedUpdate()
     {
-        MoveRight();
+        if (spawnAnimationFinished)
+        {
+            rb.isKinematic = false;
+            MoveRight();
+        }
+    }
+
+    IEnumerator OnCompleteSpawnAnimation()
+    {
+        while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+            yield return null;
+        spawnAnimationFinished = true;
     }
 
     public void MoveRight()
     {
-        rb.velocity = new Vector2(zombieData.moveSpeed * direction.x, rb.velocity.y);
+        rb.velocity = new Vector3(zombieData.moveSpeed * direction.x, rb.velocity.y, 0);
     }
 
-    public void ReverseDirection()
+    public void FlipDirection()
     {
         direction = direction * -1;
     }

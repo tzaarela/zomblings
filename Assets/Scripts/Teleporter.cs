@@ -23,6 +23,8 @@ public class Teleporter : MonoBehaviour
 		{
 			var zombie = collision.gameObject.GetComponent<ZombieController>();
 			zombie.transform.position = teleporterExit.transform.position;
+			zombie.GetComponent<SpriteRenderer>().sortingLayerName = "Zombie";
+			zombie.GetComponent<SpriteRenderer>().sortingLayerID = 0;
 
 			float[] scales = new float[2]
 			{

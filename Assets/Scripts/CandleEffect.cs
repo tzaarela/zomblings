@@ -7,10 +7,8 @@ using DG.Tweening.Core;
 public class CandleEffect : MonoBehaviour
 {
     public List<Transform> flames;
-
     public float duration = 1f;
     public float endValue = 1.2f;
-
     public List<Tween> tweens;
 
     private void Start()

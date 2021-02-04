@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public static GameController Instance;
+    private bool isWaveFinished;
     private bool isGameOver;
+
+    public static GameController Instance;
     public Action onBrainDead;
     public Action onZombiesDead;
 
@@ -39,6 +41,11 @@ public class GameController : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Escape))
                 QuitGame();
         }
+        else if (isWaveFinished)
+        {
+            if (Input.anyKey)
+                NextWave();
+        }
     }
 
     IEnumerator MakeSounds()
@@ -53,8 +60,6 @@ public class GameController : MonoBehaviour
             randomSound = zombieSounds[picker];
             SoundController.Instance.PlaySound(randomSound);
         }
-
-        
     }
 
     public void CheckIfZombiesDead()
@@ -86,6 +91,12 @@ public class GameController : MonoBehaviour
     private void RestartGame()
     {
         StartCoroutine(ReloadSceneAsync());
+        SpawnController.Instance.ResetWaves();
+    }
+
+    private void NextWave()
+    {
+        StartCoroutine(ReloadSceneAsync());
     }
 
     IEnumerator ReloadSceneAsync()
@@ -95,6 +106,7 @@ public class GameController : MonoBehaviour
         while (!asyncLoad.isDone)
         {
             yield return null;
+            SpawnController.Instance.NextWave();
         }
     }
 

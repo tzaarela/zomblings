@@ -1,20 +1,36 @@
-﻿//using UnityEngine;
-//using System.Collections;
-//using UnityEditor;
+﻿using UnityEngine;
+using System.Collections;
+using UnityEditor;
 
-//// Creates a custom Label on the inspector for all the scripts named ScriptName
-//// Make sure you have a ScriptName script in your
-//// project, else this will not work.
-//[CustomEditor(typeof(TeleporterExit))]
-//public class TestOnInspector : Editor
+// Creates a custom Label on the inspector for all the scripts named ScriptName
+// Make sure you have a ScriptName script in your
+// project, else this will not work.
+//[CustomEditor(typeof(SpawnController))]
+//public class SpawnEditor : Editor
 //{
+
+//    SerializedProperty serializedProperty;
+
+//    public void OnEnable()
+//    {
+//        serializedProperty = serializedObject.FindProperty("waveCount");
+//    }
+
 //    public override void OnInspectorGUI()
 //    {
-//        var transform = Selection.activeTransform;
-//        var isPressed = GUILayout.Button("Flip it");
+//        //SpawnController spawnController = (SpawnController)target;
+//        //DrawDefaultInspector();
 
-//        if (isPressed)
-//            transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
+//        //serializedObject.Update();
+//        //EditorGUI.BeginChangeCheck();
 
+//        //EditorGUILayout.PropertyField(serializedProperty);
+//        //spawnController.waveCount = EditorGUILayout.IntField("waveCount", serializedProperty.intValue);
+//        //serializedObject.ApplyModifiedProperties();
+
+//        //if (EditorGUI.EndChangeCheck())
+//        //{
+//        //    spawnController.waves = new Assets.Scripts.Wave[spawnController.waveCount];
+//        //}
 //    }
 //}
