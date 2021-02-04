@@ -91,9 +91,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5025374079206635441}
-  - component: {fileID: 3332344432031742535}
-  - component: {fileID: 3332344432031742532}
   - component: {fileID: 3332344432031742534}
+  - component: {fileID: 3332344432031742532}
   - component: {fileID: 5518834393065876257}
   m_Layer: 0
   m_Name: Empower
@@ -117,39 +116,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3332344432031742535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3332344432031742533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982bdbe7980560e45b12f3dcbf4f0aaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockerData: {fileID: 11400000, guid: b71ce4d361cf40d4ab108f7d0e2cbfcb, type: 2}
---- !u!114 &3332344432031742532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3332344432031742533}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb8a7f2a1c0953a4baf6c5fa1639a593, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SmartDrag: 1
-  m_IsDraggable: 1
-  m_IsDragged: 0
-  m_SnappingDiscante: 10
-  m_DropOffset: 0
-  m_PlatformLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!61 &3332344432031742534
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,6 +142,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.956268, y: 12.280249}
   m_EdgeRadius: 0
+--- !u!114 &3332344432031742532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3332344432031742533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8a7f2a1c0953a4baf6c5fa1639a593, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SmartDrag: 1
+  m_IsDraggable: 1
+  m_IsDragged: 0
+  m_SnappingDiscante: 10
+  m_DropOffset: 0
+  m_PlatformLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &5518834393065876257
 MonoBehaviour:
   m_ObjectHideFlags: 0

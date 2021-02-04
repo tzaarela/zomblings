@@ -39,6 +39,7 @@ public class ZombieController : MonoBehaviour
     public void Die()
     {
         Destroy(this.gameObject);
+        GameController.Instance.CheckIfZombiesDead();
     }
 
     public void EatBrain(Brain brain)

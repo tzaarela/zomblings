@@ -290,6 +290,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1803447738105873145, guid: bd13bb250164b3f408b8da8c4ed40ae6, type: 3}
   m_PrefabInstance: {fileID: 1803447738402528032}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &343123566 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6522346698044596511, guid: 4c4abd6fc81f9dd43b68cc8ae974574b, type: 3}
+  m_PrefabInstance: {fileID: 8629550647548844886}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &457884397 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8629550647394359739, guid: 4c4abd6fc81f9dd43b68cc8ae974574b, type: 3}
@@ -553,7 +564,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5438104272556371672, guid: fd62ea8dfc39cd64f95818db200aee62, type: 3}
       propertyPath: m_SpawnAmount
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5438104272556371672, guid: fd62ea8dfc39cd64f95818db200aee62, type: 3}
       propertyPath: m_ZombiePrefab
@@ -637,6 +648,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd62ea8dfc39cd64f95818db200aee62, type: 3}
+--- !u!114 &1947037550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1947037550, guid: 4c4abd6fc81f9dd43b68cc8ae974574b, type: 3}
+  m_PrefabInstance: {fileID: 8629550647548844886}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2005536769 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5438104272556371674, guid: fd62ea8dfc39cd64f95818db200aee62, type: 3}
@@ -878,7 +900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5014589227403100963, guid: a89fd945597e0d9478cb1623777d709c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -84.9
+      value: -3.7
       objectReference: {fileID: 0}
     - target: {fileID: 5014589227403100963, guid: a89fd945597e0d9478cb1623777d709c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -973,6 +995,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
+    - target: {fileID: 8341952852874805502, guid: 1da4582c51b143c4ca696f3145eac15e, type: 3}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 343123566}
+    - target: {fileID: 8341952852874805502, guid: 1da4582c51b143c4ca696f3145eac15e, type: 3}
+      propertyPath: loseText
+      value: 
+      objectReference: {fileID: 1947037550}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1da4582c51b143c4ca696f3145eac15e, type: 3}
 --- !u!1001 &8487389861538678180
@@ -1115,6 +1145,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1146998021}
+    - target: {fileID: 2910474669810930805, guid: 4c4abd6fc81f9dd43b68cc8ae974574b, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1200428326}
     - target: {fileID: 5226350181724999275, guid: 4c4abd6fc81f9dd43b68cc8ae974574b, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

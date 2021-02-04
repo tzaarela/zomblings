@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaaad1b66638c734097afae695320622, type: 3}
   m_Name: BlockerData
   m_EditorClassIdentifier: 
-  durability: 30
+  durability: 36

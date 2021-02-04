@@ -54,6 +54,6 @@ MonoBehaviour:
     blockers: []
     teleporters: []
     empowers: []
-  _blockerCount: 3
+  _blockerCount: 9
   _teleporterCount: 1
-  _empowerCount: 1
+  _empowerCount: 3

@@ -44,11 +44,6 @@ public class InventoryController : MonoBehaviour
         empowerCount.text = _empowerCount.ToString();
     }
 
-    public void SelectItem()
-    {
-        
-    }
-
     public void AddItem(ItemType itemType)
     {
         inventory.AddToInventory(itemType);
