@@ -12,7 +12,6 @@ public class SpawnController : MonoBehaviour
     [SerializeField] private GameObject m_ZombiePrefab;
     [SerializeField] List<Transform> m_SpawnPoints;
     [SerializeField] private float m_SpawnRate;
-    [SerializeField] private int m_SpawnAmount;
 
     private int currentWaveIndex;
 
@@ -23,7 +22,9 @@ public class SpawnController : MonoBehaviour
 
     public void Awake()
     {
-        if (Instance != this)
+        if (Instance != null)
+            Destroy(this.gameObject);
+        else
             Instance = this;
 
         DontDestroyOnLoad(gameObject);
@@ -37,6 +38,7 @@ public class SpawnController : MonoBehaviour
 
     public void NextWave()
     {
+        
         StartCoroutine(SpawnZombie());
     }
 
@@ -50,7 +52,7 @@ public class SpawnController : MonoBehaviour
     {
         for (int i = 0; i < waves[currentWaveIndex].zombieCount; i++)
         {
-            var randomSpawnIndex = Random.Range(0, m_SpawnPoints.Count - 1); 
+            var randomSpawnIndex = Random.Range(0, m_SpawnPoints.Count); 
             yield return new WaitForSeconds(m_SpawnRate);
             var zombie = Instantiate(m_ZombiePrefab, m_SpawnPoints[randomSpawnIndex].position, Quaternion.identity).GetComponent<ZombieController>();
             zombie.GetComponent<Rigidbody2D>().isKinematic = true;

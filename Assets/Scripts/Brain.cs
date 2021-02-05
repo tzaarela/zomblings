@@ -78,6 +78,7 @@ public class Brain : MonoBehaviour
         if (health <= 0)
         {
             GameController.Instance.onBrainDead.Invoke();
+            Time.timeScale = 0;
             Destroy(gameObject);
             return true;
         }

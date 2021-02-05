@@ -1,14 +1,10 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
+﻿//using UnityEngine;
+//using System.Collections;
+//using UnityEditor;
 
-// Creates a custom Label on the inspector for all the scripts named ScriptName
-// Make sure you have a ScriptName script in your
-// project, else this will not work.
 //[CustomEditor(typeof(SpawnController))]
 //public class SpawnEditor : Editor
 //{
-
 //    SerializedProperty serializedProperty;
 
 //    public void OnEnable()
@@ -18,19 +14,17 @@ using UnityEditor;
 
 //    public override void OnInspectorGUI()
 //    {
-//        //SpawnController spawnController = (SpawnController)target;
-//        //DrawDefaultInspector();
+//        SpawnController spawnController = (SpawnController)target;
+//        DrawDefaultInspector();
 
-//        //serializedObject.Update();
-//        //EditorGUI.BeginChangeCheck();
+//        serializedObject.Update();
+//        EditorGUI.BeginChangeCheck();
+//        spawnController.waveCount = EditorGUILayout.IntField("waveCount", serializedProperty.intValue);
+//        serializedObject.ApplyModifiedProperties();
 
-//        //EditorGUILayout.PropertyField(serializedProperty);
-//        //spawnController.waveCount = EditorGUILayout.IntField("waveCount", serializedProperty.intValue);
-//        //serializedObject.ApplyModifiedProperties();
-
-//        //if (EditorGUI.EndChangeCheck())
-//        //{
-//        //    spawnController.waves = new Assets.Scripts.Wave[spawnController.waveCount];
-//        //}
+//        if (EditorGUI.EndChangeCheck())
+//        {
+//            spawnController.waves = new Assets.Scripts.Wave[spawnController.waveCount];
+//        }
 //    }
 //}

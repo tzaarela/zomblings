@@ -23,8 +23,21 @@ public class Teleporter : MonoBehaviour
 		{
 			var zombie = collision.gameObject.GetComponent<ZombieController>();
 			zombie.transform.position = teleporterExit.transform.position;
-			zombie.GetComponent<SpriteRenderer>().sortingLayerName = "Zombie";
-			zombie.GetComponent<SpriteRenderer>().sortingLayerID = 0;
+			zombie.GetComponent<SpriteRenderer>().sortingLayerName = "Zombies";
+			zombie.GetComponent<SpriteRenderer>().sortingOrder = 0;
+
+			//Continue
+			switch (teleporterExit.exitType)
+			{
+				case Assets.Scripts.ExitType.Random:
+					//zombie.direction = 
+					break;
+				case Assets.Scripts.ExitType.Left:
+					break;
+				case Assets.Scripts.ExitType.Right:
+					break;
+				
+			}
 		}
 	}
 }

@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
 
     public TextMeshProUGUI winText;
     public TextMeshProUGUI loseText;
+    public TextMeshProUGUI waveText;
 
     [SerializeField] private float m_SoundInterval;
 
@@ -27,7 +28,7 @@ public class GameController : MonoBehaviour
 
     public void Start()
     {
-        onBrainDead += Win;
+        onBrainDead += WaveComplete;
         onZombiesDead += Lose;
         StartCoroutine(MakeSounds());
     }
@@ -44,7 +45,11 @@ public class GameController : MonoBehaviour
         else if (isWaveFinished)
         {
             if (Input.anyKey)
+            {
+                Time.timeScale = 1;
                 NextWave();
+                isWaveFinished = false;
+            }
         }
     }
 
@@ -88,16 +93,22 @@ public class GameController : MonoBehaviour
         isGameOver = true;
     }
 
+    private void WaveComplete()
+    {
+        waveText.gameObject.SetActive(true);
+        isWaveFinished = true;
+    }
+
     private void RestartGame()
     {
         StartCoroutine(ReloadSceneAsync());
         SpawnController.Instance.ResetWaves();
-        SceneManager.LoadScene(1);
     }
 
     private void NextWave()
     {
         StartCoroutine(ReloadSceneAsync());
+        SpawnController.Instance.NextWave();
     }
 
     IEnumerator ReloadSceneAsync()
@@ -107,7 +118,6 @@ public class GameController : MonoBehaviour
         while (!asyncLoad.isDone)
         {
             yield return null;
-            SpawnController.Instance.NextWave();
         }
     }
 

@@ -17,12 +17,12 @@ public class ZombieController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer.sprite = zombieData.sprite;
         animator = GetComponent<Animator>();
     }
 
     public void Start()
     {
-        SpriteRenderer.sprite = zombieData.sprite;
 
         var random = Random.Range(0, 2);
         direction = random == 0 ? Vector3.right : Vector3.left;
@@ -45,6 +45,7 @@ public class ZombieController : MonoBehaviour
         while (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
             yield return null;
         spawnAnimationFinished = true;
+        SpriteRenderer.sortingLayerName = "Zombies";
     }
 
     public void MoveRight()

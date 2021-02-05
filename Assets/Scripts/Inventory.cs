@@ -55,10 +55,15 @@ namespace Assets.Scripts
         {
 			var droppers = items.FirstOrDefault(x => x.Any(y => y.itemType == itemType));
 
+			items.ForEach(test => Console.WriteLine(test.Length));
+
             for (int i = 0; i < droppers.Length; i++)
             {
 				if (droppers[i].isSlotEmpty)
+                {
 					droppers[i] = new InventoryItem(itemType);
+					break;
+                }
 			}
         }
 
