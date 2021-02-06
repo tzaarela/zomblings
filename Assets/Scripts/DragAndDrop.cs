@@ -88,7 +88,7 @@ public class DragAndDrop : MonoBehaviour
 
         if (hit)
         {
-            transform.position = hit.point + new Vector2(0, m_DropOffset);
+            transform.position = new Vector2(hit.point.x, hit.collider.bounds.max.y) + new Vector2(0, m_DropOffset);
             SoundController.Instance.PlaySound("PlaceBlock1");
         }
         else

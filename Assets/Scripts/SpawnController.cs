@@ -13,8 +13,7 @@ public class SpawnController : MonoBehaviour
     [SerializeField] List<Transform> m_SpawnPoints;
     [SerializeField] private float m_SpawnRate;
 
-    private int currentWaveIndex;
-
+    public int currentWaveIndex;
     public int waveCount;
 
     [SerializeField]
