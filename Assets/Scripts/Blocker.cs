@@ -26,6 +26,7 @@ public class Blocker : MonoBehaviour
 			var zombie = collision.gameObject.GetComponent<ZombieController>();
 			ReduceDurability(zombie);
 			zombie.FlipDirection();
+			GetComponent<Explodable>().explode();
 		}
 	}
 
@@ -33,16 +34,16 @@ public class Blocker : MonoBehaviour
 	{
 		//TODO - Change sprite depending on state
 		durability -= zombie.zombieData.damage;
-		if (durability >= 36)
+		if (durability >= 40 && durability < 100)
 		{
 			m_SpriteRenderer.sprite = m_FullDura;
 		}
-		else if (durability <= 24 && durability > 12)
+		else if (durability <= 39 && durability >= 20)
 		{
 			m_SpriteRenderer.sprite = m_DamagedDura;
 			m_Flame.SetActive(false);
 		}
-		else if (durability <= 12)
+		else if (durability <= 19)
 		{
 			m_SpriteRenderer.sprite = m_CriticalDura;
 		}

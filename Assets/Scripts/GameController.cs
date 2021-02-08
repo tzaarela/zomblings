@@ -15,11 +15,6 @@ public class GameController : MonoBehaviour
     public Action onBrainDead;
     public Action onZombiesDead;
 
-    public TextMeshProUGUI winText;
-    public TextMeshProUGUI loseText;
-    public TextMeshProUGUI waveText;
-    public TextMeshProUGUI waveCounterText;
-    public TextMeshProUGUI pauseText;
 
     [SerializeField] private float m_SoundInterval;
 
@@ -35,8 +30,7 @@ public class GameController : MonoBehaviour
         onZombiesDead += Lose;
         StartCoroutine(MakeSounds());
 
-        ShowCurrentWaveText();
-        Invoke(nameof(HideCurrentWaveText), 2);
+        HudController.OnToggleNewWaveText(true, SpawnController.Instance.currentWaveIndex);
     }
 
     public void Update()
@@ -70,14 +64,14 @@ public class GameController : MonoBehaviour
     private void PauseGame()
     {
         Time.timeScale = 0;
-        pauseText.gameObject.SetActive(true);
+        HudController.OnTogglePauseText(true);
         isPaused = true;
     }
 
     private void UnpauseGame()
     {
         Time.timeScale = 1;
-        pauseText.gameObject.SetActive(false);
+        HudController.OnTogglePauseText(false);
         isPaused = false;
     }
 
@@ -93,18 +87,6 @@ public class GameController : MonoBehaviour
             randomSound = zombieSounds[picker];
             SoundController.Instance.PlaySound(randomSound);
         }
-    }
-
-    private void ShowCurrentWaveText()
-    {
-        waveCounterText.gameObject.SetActive(true);
-        waveCounterText.gameObject.GetComponentsInChildren<TextMeshProUGUI>()[1].text = 
-            (SpawnController.Instance.currentWaveIndex + 1).ToString();
-    }
-
-    private void HideCurrentWaveText()
-    {
-        waveCounterText.gameObject.SetActive(false);
     }
 
     public void CheckIfZombiesDead()
@@ -123,13 +105,13 @@ public class GameController : MonoBehaviour
 
     private void Lose()
     {
+        HudController.OnToggleLoseText.Invoke(true);
         isGameOver = true;
-        loseText.gameObject.SetActive(true);
     }
 
     private void Win()
     {
-        winText.gameObject.SetActive(true);
+        HudController.OnToggleWinText.Invoke(true);
         isGameOver = true;
     }
 
@@ -141,15 +123,15 @@ public class GameController : MonoBehaviour
         }
         else
         {
-            waveText.gameObject.SetActive(true);
+            HudController.OnToggleWaveCompleteText.Invoke(true);
             isWaveFinished = true;
         }
     }
 
     private void RestartGame()
     {
-        StartCoroutine(ReloadSceneAsync());
         SpawnController.Instance.ResetWaves();
+        StartCoroutine(ReloadSceneAsync());
 
         if (isPaused)
             UnpauseGame();
